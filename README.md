@@ -1,4 +1,4 @@
-# Simbotic Cortex
+# Simbotic AirSim
 
 Machine learning, physics and controls development environment:
 
@@ -13,7 +13,7 @@ Machine learning, physics and controls development environment:
 
 Clone this repo recursively:
 ```
-git clone --recursively git@github.com:VertexStudio/simbotic-cortex.git
+git clone --recursively git@github.com:VertexStudio/simbotic-airsim.git
 ```
 
 ## Docker Setup
@@ -60,16 +60,16 @@ make -j`nproc`
 
 ### CPU-based image
 ```
-cd simbotic-cortex # into this repo clone
-docker build --build-arg USER_ID=$(id -u ${USER}) --build-arg GROUP_ID=$(id -g ${USER}) -t simbotic-cortex/cpu .
-docker run --runtime=nvidia -ti -v $(pwd):/sim --network=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --cap-add=SYS_PTRACE simbotic-cortex/cpu
+cd simbotic-airsim # into this repo clone
+docker build --build-arg USER_ID=$(id -u ${USER}) --build-arg GROUP_ID=$(id -g ${USER}) -t simbotic-airsim/cpu .
+docker run --runtime=nvidia -ti -v $(pwd):/sim --network=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --cap-add=SYS_PTRACE simbotic-airsim/cpu
 ```
 
 ### GPU-based image
 You will need [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 ```
-cd simbotic-cortex # into this repo clone
-docker build --build-arg USER_ID=$(id -u ${USER}) --build-arg GROUP_ID=$(id -g ${USER}) -t simbotic-cortex/gpu .
-docker run --runtime=nvidia -ti -v $(pwd):/sim --network=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --cap-add=SYS_PTRACE simbotic-cortex/gpu
+cd simbotic-airsim # into this repo clone
+docker build --build-arg USER_ID=$(id -u ${USER}) --build-arg GROUP_ID=$(id -g ${USER}) -t simbotic-airsim/gpu .
+docker run --runtime=nvidia -ti -v $(pwd):/sim --network=host -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --cap-add=SYS_PTRACE simbotic-airsim/gpu
 ```
 
